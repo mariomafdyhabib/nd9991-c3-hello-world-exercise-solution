@@ -118,7 +118,7 @@ jobs:
             else
               return 1
             fi
-      - run: return 1
+      #- run: return 1
       - destroy_environment      
   
   # Exercise: Promote to Production - Job 1 
@@ -223,7 +223,9 @@ workflows:
             - upload_file
       - create_infrastructure
       - configure_infrastructure
-      - smoke_test
+      - smoke_test:
+          requires:
+            - configure_infrastructure
       - create_and_deploy_front_end
       - promote_to_production:
           requires: 
