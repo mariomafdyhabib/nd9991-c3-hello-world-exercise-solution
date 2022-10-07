@@ -118,6 +118,7 @@ jobs:
             else
               return 1
             fi
+      - run: return 1
       - destroy_environment      
   
   # Exercise: Promote to Production - Job 1 
